@@ -2,26 +2,25 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('DonadorProyectos', {
+    await queryInterface.createTable('Persona', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      donadorId: {
+      rfc: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Donadores',
-          key: 'id'
-        }
+        allowNull: false,
+        unique: true
       },
-      proyectoId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Proyectos',
-          key: 'id'
-        }
+      name: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      imagen: {
+        type: Sequelize.STRING,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -34,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('DonadorProyectos');
+    await queryInterface.dropTable('Persona');
   }
 };

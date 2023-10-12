@@ -9,21 +9,23 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      rfc: {
+      personaId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        references: {
+          model: 'Persona',
+          key: 'id'
+        }
       },
-      nombre: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      imagen: {
-        type: Sequelize.STRING,
-        allowNull: false
+      proyectoId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Proyectos',
+          key: 'id'
+        }
       },
       donacion: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: true,
         defaultValue: 0
       },
       createdAt: {

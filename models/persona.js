@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Donatarios extends Model {
+  class Persona extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,16 +11,18 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Persona.belongsToMany(models.Proyectos, {through: models.Donadores, as: 'donadores',foreignKey: 'personaId', otherKey: 'proyectoId'});
     }
   }
-  Donatarios.init({
+  Persona.init({
     rfc: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      unique: true
     },
-    nombre: {
+    name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     imagen: {
       type: DataTypes.STRING,
@@ -28,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Donatarios',
+    modelName: 'Persona',
+    tableName: 'Persona',
   });
-  return Donatarios;
+  return Persona;
 };

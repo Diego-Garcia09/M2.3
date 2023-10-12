@@ -1,7 +1,7 @@
 const models = require('./models');
 
 const consultaProyectos = async () => {
-    r = await models.DonadorProyectos.findAll();
+    r = await models.Donadores.findAll();
     await r.forEach(p => {
         console.log(p.dataValues);
     });
@@ -11,11 +11,11 @@ const consultaProyectos = async () => {
 const agregaPropietarios = async () => {
     const prop = await models.Proyectos.findByPk(1);
     //console.log(prop.dataValues);
-    const per1 = await models.Donadores.findByPk(2);
-    const per2 = await models.Donadores.findByPk(1);
+    const per1 = await models.Persona.findByPk(2);
+    const per2 = await models.Persona.findByPk(1);
     //console.log(per.dataValues)
-    await prop.addDonadorProyecto([per1,per2]);
-    const propietarios = await prop.getDonadorProyecto();
+    await prop.addDonadores([per1,per2]);
+    const propietarios = await prop.getDonadores();
     await propietarios.forEach(p => {
         console.log(p.nombre);
         

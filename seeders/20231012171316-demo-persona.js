@@ -1,10 +1,8 @@
 'use strict';
 
-const donadores = require('../models/donadores');
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up (queryInterface, Sequelize) {
     /**
      * Add seed commands here.
      *
@@ -14,28 +12,31 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('Donadores', [{
+    await queryInterface.bulkInsert('Persona', [{
       rfc: 1,
-      nombre: 'Diego',
-      imagen: 'diego.jpg',
-      donacion: 1000
+      name: 'Diego',
+      imagen: 'diego.jpg'
     },
     {
       rfc: 2,
-      nombre: 'Andre',
-      imagen: 'andre.jpg',
-      donacion: 500
+      name: 'Anna',
+      imagen: 'anna.jpg',
+    },
+    {
+      rfc: 3,
+      name: 'Alejandro',
+      imagen: 'ale.jpg',
     }
-  ], {});
+    ], {});
   },
 
-  async down(queryInterface, Sequelize) {
+  async down (queryInterface, Sequelize) {
     /**
      * Add commands to revert seed here.
      *
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    await queryInterface.bulkDelete('Donadores', {}, {});
+    await queryInterface.bulkDelete('Persona', {}, {});
   }
 };
