@@ -2,29 +2,28 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Estudiantes', {
+    await queryInterface.createTable('Donadores', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      rfc: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
       nombre: {
         type: Sequelize.STRING,
         allowNull: false
       },
-      matricula: {
+      imagen: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      donacion: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true
-      },
-      semestreIngreso: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
-      creditosCursados: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
         defaultValue: 0
       },
       createdAt: {
@@ -38,6 +37,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Estudiantes');
+    await queryInterface.dropTable('Donadores');
   }
 };

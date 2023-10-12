@@ -2,21 +2,21 @@
   "development": {
     "username": "backenduser",
     "password": "superpassword",
-    "database": "escolar",
+    "database": "donaciones",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "backenduser",
     "password": "superpassword",
-    "database": "escolartest",
+    "database": "donacionestest",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "backenduser",
     "password": "superpassword",
-    "database": "escolarproduction",
+    "database": "donacionesproduction",
     "host": "localhost",
     "dialect": "mysql"
   }

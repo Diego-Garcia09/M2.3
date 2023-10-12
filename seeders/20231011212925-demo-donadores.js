@@ -1,5 +1,7 @@
 'use strict';
 
+const donadores = require('../models/donadores');
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -12,22 +14,19 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('Cursos', [
-      {
-        nombre: 'Programacion Perl',
-        clave: 100,
-        creditos: 6,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      },
-      {
-        nombre: 'POO',
-        clave: 99,
-        creditos: 6,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }
-    ], {});
+    await queryInterface.bulkInsert('Donadores', [{
+      rfc: 1,
+      nombre: 'Diego',
+      imagen: 'diego.jpg',
+      donacion: 1000
+    },
+    {
+      rfc: 2,
+      nombre: 'Andre',
+      imagen: 'andre.jpg',
+      donacion: 500
+    }
+  ], {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -37,6 +36,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('Cursos', {}, {});
+    await queryInterface.bulkDelete('Donadores', {}, {});
   }
 };
