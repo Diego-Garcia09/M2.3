@@ -14,6 +14,7 @@ const agregaPropietarios = async () => {
     const per1 = await models.Persona.findByPk(2);
     const per2 = await models.Persona.findByPk(1);
     //console.log(per.dataValues)
+    // await Persona.setProyecto(prop);
     await prop.addDonadores([per1,per2]);
     const propietarios = await prop.getDonadores();
     await propietarios.forEach(p => {
