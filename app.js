@@ -18,11 +18,7 @@ const agregaPropietarios = async () => {
     const propietarios = await prop.getDonadores();
     await propietarios.forEach(p => {
         console.log(p.nombre);
-        
     });
-
-
-
     models.sequelize.close();
 }
 
