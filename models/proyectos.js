@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 0
+    },
+    donatario: {
+      type: DataTypes.Persona,
+      allowNull: true
     }
   }, {
     sequelize,
