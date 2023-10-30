@@ -20,7 +20,41 @@ const agregaPropietarios = async () => {
     await propietarios.forEach(p => {
         console.log(p.nombre);
     });
+    const proyecto = await models.Proyectos.findByPk(1);
+    const persona = await models.Persona.findByPk(1);
+  
+    // Asignar a la persona como donatario del proyecto
+    proyecto.donatarioId = persona.id;
+    await proyecto.save();
+  
+    // Verificar la asignación
+    const donatario = await proyecto.getDonatario();
+    if (donatario) {
+      console.log(`Persona ${donatario.name} asignada como donatario para el proyecto ${proyecto.nombre}.`);
+    } else {
+      console.log('No se pudo asignar un donatario.');
+    }
     models.sequelize.close();
 }
+
+const asignarDonatario = async () => {
+    const proyecto = await models.Proyectos.findByPk(1);
+    const persona = await models.Persona.findByPk(1);
+  
+    // Asignar a la persona como donatario del proyecto
+    proyecto.donatarioId = persona.id;
+    await proyecto.save();
+  
+    // Verificar la asignación
+    const donatario = await proyecto.getDonatario();
+    if (donatario) {
+      console.log(`Persona ${donatario.name} asignada como donatario para el proyecto ${proyecto.nombre}.`);
+    } else {
+      console.log('No se pudo asignar un donatario.');
+    }
+  
+    models.sequelize.close();
+  };
+//   asignarDonatario();
 
 agregaPropietarios();

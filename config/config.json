@@ -2,21 +2,21 @@
   "development": {
     "username": "backenduser",
     "password": "superpassword",
-    "database": "donaciones",
+    "database": "proyecto_donaciones",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "backenduser",
     "password": "superpassword",
-    "database": "donacionestest",
+    "database": "proyecto_donacionestest",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "backenduser",
     "password": "superpassword",
-    "database": "donacionesproduction",
+    "database": "proyecto_donacionesproduction",
     "host": "localhost",
     "dialect": "mysql"
   }

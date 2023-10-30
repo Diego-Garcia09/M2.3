@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.Proyectos.belongsTo(models.Persona, {
+        as: 'donatario',
+        foreignKey: 'donatarioId',
+        constraints: false,
+      });
       models.Proyectos.belongsToMany(models.Persona, {through: models.Donadores, as: 'donadores', foreignKey: 'proyectoId', otherKey: 'personaId'});
       // models.Proyectos.belongsTo(models.Persona, {foreignKey: 'personaId'});
     }
@@ -29,8 +34,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: 0
     },
-    donatario: {
-      type: DataTypes.Persona,
+    donatarioId: {
+      type: DataTypes.INTEGER,
       allowNull: true
     }
   }, {

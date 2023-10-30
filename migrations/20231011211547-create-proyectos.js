@@ -22,6 +22,10 @@ module.exports = {
         allowNull: false,
         defaultValue: 0
       },
+      donatarioId: {
+        type: Sequelize.INTEGER,
+        allowNull: true
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
